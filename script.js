@@ -52,6 +52,7 @@ function hideMenu() {
     toggledMenu = !toggledMenu;
 };
 
+//func that change main content 
 function toMainContent(e, i) {
     allContentArr[lastAtMainContent].classList.add("toMainOutContent");
     document.querySelector(".toMainOutContent").addEventListener("animationend", () => {
@@ -62,9 +63,12 @@ function toMainContent(e, i) {
     allContentArr.forEach((a, b) => {
         (i == b) ? a.classList.add("toMainContent"): a.classList.remove("toMainContent");
         (i == b) ? lastAtMainContent = i: null;
+        (i == b) ? changedots(b): null;
+
     })
 }
 
+//add interactive actions to menu
 btns.forEach((e, i) => {
     e.addEventListener("click", () => {
         toMainContent(e, i)
@@ -72,104 +76,33 @@ btns.forEach((e, i) => {
     })
 })
 
-// btns[3].addEventListener("click", function przycisk4() {
-//     alert("3")
-//     document.getElementById("spolecznosci").setAttribute("style", "Display: none;");
-//     document.getElementById("first_contant").setAttribute("style", "Display: none;");
-//     document.getElementById("mojatworczosc").setAttribute("style", "Display: none;");
-//     document.getElementById("contact").setAttribute("style", "Display: block;");
+//script for change info dots
 
+function changedots(num) {
+    let selectDot = document.querySelector(`#list > div:nth-child(${num+1})`);
+    let allDots = document.querySelectorAll("#list > div");
+    [...allDots].map((e, i) => {
+        try {
+            e.classList.remove("selectedDot");
+        } catch (err) {
+            c(err)
+        }
+    })
+    selectDot.classList.add("selectedDot");
+}
+document.body.addEventListener('wheel', (e) => {
 
-//     if (buttonToggle.getAttribute("id") == "table_1") {
-//         document.getElementById("menu").setAttribute("id", "menu_toggled");
-//         document.getElementById("transp").setAttribute("class", "transp_toggled");
+    let selectedDot = document.querySelector(".selectedDot");
+    let a = selectedDot.getAttribute("n");
+    if (e.wheelDelta > 0) {
+        changedots((Number(a) - 1) % 4);
+        toMainContent(selectedDot, (Number(a) - 1) % 4)
+    } else {
+        let x;
+        ((Number(a) + 1) % 4) == 0 ? x = 1 : x = (Number(a) + 1) % 4;
+        changedots(x);
+        toMainContent(selectedDot, (Number(a) + 1) % 4)
+    }
+    c(a)
 
-//     } else {
-//         document.getElementById("menu_toggled").setAttribute("id", "menu");
-//         document.getElementById("transp").setAttribute("class", "transp");
-//     }
-//     if (buttonToggle.getAttribute("id") == "table_1") {
-//         document.getElementById("table_1").setAttribute("id", "table_1_toggled");
-//         document.getElementById("table_2").setAttribute("id", "table_2_toggled");
-//         document.getElementById("table_3").setAttribute("id", "table_3_toggled");
-//     } else {
-//         document.getElementById("table_1_toggled").setAttribute("id", "table_1");
-//         document.getElementById("table_2_toggled").setAttribute("id", "table_2");
-//         document.getElementById("table_3_toggled").setAttribute("id", "table_3");
-//     }
-// });
-
-// btns[2].addEventListener("click", function przycisk3() {
-//     document.getElementById("spolecznosci").setAttribute("style", "Display: block;");
-//     document.getElementById("first_contant").setAttribute("style", "Display: none;");
-//     document.getElementById("mojatworczosc").setAttribute("style", "Display: none;");
-//     document.getElementById("contact").setAttribute("style", "Display: none;");
-//     if (buttonToggle.getAttribute("id") == "table_1") {
-//         document.getElementById("menu").setAttribute("id", "menu_toggled");
-//         document.getElementById("transp").setAttribute("class", "transp_toggled");
-
-//     } else {
-//         document.getElementById("menu_toggled").setAttribute("id", "menu");
-//         document.getElementById("transp").setAttribute("class", "transp");
-//     }
-//     if (buttonToggle.getAttribute("id") == "table_1") {
-//         document.getElementById("table_1").setAttribute("id", "table_1_toggled");
-//         document.getElementById("table_2").setAttribute("id", "table_2_toggled");
-//         document.getElementById("table_3").setAttribute("id", "table_3_toggled");
-//     } else {
-//         document.getElementById("table_1_toggled").setAttribute("id", "table_1");
-//         document.getElementById("table_2_toggled").setAttribute("id", "table_2");
-//         document.getElementById("table_3_toggled").setAttribute("id", "table_3");
-//     }
-// });
-
-
-
-// btns[1].addEventListener("click", function przycisk2() {
-//     document.getElementById("mojatworczosc").setAttribute("style", "Display: inline-block;");
-//     document.getElementById("first_contant").setAttribute("style", "Display: none;");
-//     document.getElementById("spolecznosci").setAttribute("style", "Display: none;");
-//     document.getElementById("contact").setAttribute("style", "Display: none;");
-//     if (buttonToggle.getAttribute("id") == "table_1") {
-//         document.getElementById("menu").setAttribute("id", "menu_toggled");
-//         document.getElementById("transp").setAttribute("class", "transp_toggled");
-
-
-//     } else {
-//         document.getElementById("menu_toggled").setAttribute("id", "menu");
-//         document.getElementById("transp").setAttribute("class", "transp");
-//     }
-//     if (buttonToggle.getAttribute("id") == "table_1") {
-//         document.getElementById("table_1").setAttribute("id", "table_1_toggled");
-//         document.getElementById("table_2").setAttribute("id", "table_2_toggled");
-//         document.getElementById("table_3").setAttribute("id", "table_3_toggled");
-//     } else {
-//         document.getElementById("table_1_toggled").setAttribute("id", "table_1");
-//         document.getElementById("table_2_toggled").setAttribute("id", "table_2");
-//         document.getElementById("table_3_toggled").setAttribute("id", "table_3");
-//     }
-// });
-
-// btns[0].addEventListener("click", function przycisk1() {
-//     document.getElementById("mojatworczosc").setAttribute("style", "Display: none;");
-//     document.getElementById("spolecznosci").setAttribute("style", "Display: none;");
-//     document.getElementById("first_contant").setAttribute("style", "Display: ;");
-//     document.getElementById("contact").setAttribute("style", "Display: none;");
-//     if (buttonToggle.getAttribute("id") == "table_1") {
-//         document.getElementById("menu").setAttribute("id", "menu_toggled");
-//         document.getElementById("transp").setAttribute("class", "transp_toggled");
-
-//     } else {
-//         document.getElementById("menu_toggled").setAttribute("id", "menu");
-//         document.getElementById("transp").setAttribute("class", "transp");
-//     }
-//     if (buttonToggle.getAttribute("id") == "table_1") {
-//         document.getElementById("table_1").setAttribute("id", "table_1_toggled");
-//         document.getElementById("table_2").setAttribute("id", "table_2_toggled");
-//         document.getElementById("table_3").setAttribute("id", "table_3_toggled");
-//     } else {
-//         document.getElementById("table_1_toggled").setAttribute("id", "table_1");
-//         document.getElementById("table_2_toggled").setAttribute("id", "table_2");
-//         document.getElementById("table_3_toggled").setAttribute("id", "table_3");
-//     }
-// });
+});

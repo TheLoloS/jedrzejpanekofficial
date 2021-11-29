@@ -22,7 +22,7 @@
     
     @keyframes toMain {
         0% {
-            transform: translate(-200vw, 0);
+            transform: translate(-200vw, 0) scale(0.3);
         }
         100% {
             transform: translate(0, 0);
@@ -34,7 +34,7 @@
             transform: translate(0, 0);
         }
         100% {
-            transform: translate(200vw, 0);
+            transform: translate(200vw, 0) scale(0.3);
         }
     }
     
@@ -57,11 +57,11 @@
     }
     
     .toMainContent {
-        animation: toMain 1.5s ease-in-out forwards;
+        animation: toMain .5s ease-in-out forwards;
     }
     
     .toMainOutContent {
-        animation: toMainOut 1.5s ease-in-out forwards;
+        animation: toMainOut .5s ease-in-out forwards;
     }
     
     body {
@@ -148,12 +148,38 @@
         transform: rotate(-45deg) translate(6px, -6px);
     }
     
+    #list {
+        width: 20vh;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        display: inline-flex;
+        bottom: 10%;
+        font-size: 3vh;
+        justify-content: space-evenly;
+    }
+    
+    .dot {
+        background-color: gray;
+        transition: .3s ease;
+        border-radius: 100%;
+        width: 1vh;
+        height: 1vh;
+    }
+    
+    .selectedDot {
+        transform: scale(1.5);
+        transition: .3s ease;
+        background-color: white!important;
+    }
+    
     .first_contant {
         /* left: 30%; */
         /* right: 15%; */
         width: 75%;
-        max-width: 100vh;
+        max-width: 120vh;
         height: 70vh;
+        top: 12vh;
         /* top: 15%; */
         position: absolute;
         background-color: rgba(0, 0, 0, 0.5);
@@ -164,7 +190,7 @@
     .first_contant>h1 {
         color: white;
         padding-left: 30px;
-        font-size: 64px;
+        font-size: 4vh;
         transition: 0.3s ease;
     }
     /* .first_contant>h1:hover {
@@ -260,8 +286,9 @@ transition: 0.3s ease; */
         /* left: 10%; */
         /* right: 10%; */
         width: 75%;
-        max-width: 110vh;
-        height: 80vh;
+        top: 12vh;
+        max-width: 120vh;
+        height: 70vh;
         /* top: 7.5%; */
         position: absolute;
         background-color: rgba(0, 0, 0, 0.5);
@@ -286,7 +313,7 @@ transition: 0.3s ease; */
         width: 100%;
         text-align: center;
         color: white;
-        font-size: 64px;
+        font-size: 4vh;
         transition: 0.3s;
     }
     
@@ -320,11 +347,12 @@ transition: 0.3s ease; */
     }
     
     .spolecznosci {
-        left: 10%;
-        right: 10%;
-        width: 80%;
-        height: 90%;
-        top: 5%;
+        /* left: 10%; */
+        /* right: 10%; */
+        width: 75%;
+        max-width: 120vh;
+        height: 70vh;
+        top: 12vh;
         position: absolute;
         background-color: rgba(0, 0, 0, 0.5);
         /* transition: 1s;
@@ -336,7 +364,7 @@ transition: 0.3s ease; */
         width: 100%;
         text-align: center;
         color: white;
-        font-size: 64px;
+        font-size: 4vh;
         transition: 0.3s;
     }
     
@@ -366,11 +394,10 @@ transition: 0.3s ease; */
     }
     
     .contact {
-        left: 10%;
-        right: 10%;
-        width: 80%;
-        height: 90%;
-        top: 5%;
+        width: 75%;
+        max-width: 120vh;
+        height: 70vh;
+        top: 12vh;
         position: absolute;
         background-color: rgba(0, 0, 0, 0.5);
         /* transition: 1s;
@@ -383,7 +410,7 @@ transition: 0.3s ease; */
         width: 100%;
         text-align: center;
         color: white;
-        font-size: 64px;
+        font-size: 4vh;
         transition: 0.3s;
     }
     
@@ -549,7 +576,7 @@ transition: 0.3s ease; */
             color: white;
             text-align: center;
             padding-left: 0;
-            font-size: 64px;
+            font-size: 4vh;
             padding-top: 6vw;
             transition: 0.3s ease;
         }
@@ -597,7 +624,7 @@ transition: 0.3s ease; */
             width: 100%;
             text-align: center;
             color: white;
-            font-size: 64px;
+            font-size: 4vh;
             transition: 0.3s;
             padding-top: 1vh;
         }
