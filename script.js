@@ -9,9 +9,22 @@ let transp = document.getElementById("transp");
 let menu = document.getElementById("menu");
 let allContentArr = [document.getElementById("first_contant"), document.getElementById("mojatworczosc"), document.getElementById("spolecznosci"), document.getElementById("contact")]
 let lastAtMainContent = 0;
+let cursor = document.querySelector("#cursor");
 
+//better consol.log func
 function c(a) {
     console.log("%c" + a, "color: red; font-size: 4vh")
+}
+
+//vh && vw func
+function vh(v) {
+    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    return (v * h) / 100;
+}
+
+function vw(v) {
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    return (v * w) / 100;
 }
 
 allContentArr[0].classList.add("toMainContent");
@@ -54,12 +67,12 @@ function hideMenu() {
 
 //func that change main content 
 function toMainContent(e, i) {
+    c(i)
     allContentArr[lastAtMainContent].classList.add("toMainOutContent");
     document.querySelector(".toMainOutContent").addEventListener("animationend", () => {
         document.querySelector(".toMainOutContent").classList.contains("toMainOutContent") ? document.querySelector(".toMainOutContent").classList.remove("toMainOutContent") : null;
 
     })
-    c(i)
     allContentArr.forEach((a, b) => {
         (i == b) ? a.classList.add("toMainContent"): a.classList.remove("toMainContent");
         (i == b) ? lastAtMainContent = i: null;
@@ -90,19 +103,50 @@ function changedots(num) {
     })
     selectDot.classList.add("selectedDot");
 }
-document.body.addEventListener('wheel', (e) => {
 
+//add event on scroll 
+document.body.addEventListener('wheel', (e) => {
+    c(e.wheelDelta)
     let selectedDot = document.querySelector(".selectedDot");
     let a = selectedDot.getAttribute("n");
     if (e.wheelDelta > 0) {
-        changedots((Number(a) - 1) % 4);
-        toMainContent(selectedDot, (Number(a) - 1) % 4)
+        let x;
+        ((Number(a) - 1) % 4) == -1 ? x = 3 : x = (Number(a) - 1) % 4;
+
+        changedots(x);
+        toMainContent(selectedDot, x)
+
     } else {
         let x;
-        ((Number(a) + 1) % 4) == 0 ? x = 1 : x = (Number(a) + 1) % 4;
+        ((Number(a) + 1) % 4) == 0 ? x = 0 : x = (Number(a) + 1) % 4;
         changedots(x);
-        toMainContent(selectedDot, (Number(a) + 1) % 4)
+        toMainContent(selectedDot, x)
+
     }
-    c(a)
+    // c(a)
 
 });
+
+//When menu is toggled its add click event to transparent element that's toggle off menu.
+
+transp.addEventListener("click", () => {
+    menu.classList == "transp_toggled" || hideMenu();
+})
+
+//add custom cursor 
+let hoverSatus = false;
+document.body.addEventListener("mousemove", (event) => {
+    !hoverSatus ? cursor.setAttribute("style", `transform: translate(${event.clientX - vh(1.25)}px, ${event.clientY - vh(1.25)}px);`) :
+        cursor.setAttribute("style", `transform: translate(${event.clientX - vh(1.25)}px, ${event.clientY - vh(1.25)}px) scale(1.5);`);
+})
+
+//add hover effect on elements
+let hoverElements = [document.querySelector("#button_menu"), ...document.querySelectorAll("#menu > ul > li")];
+hoverElements.map((e) => {
+    e.addEventListener("mouseover", () => {
+        hoverSatus = true;
+    })
+    e.addEventListener("mouseout", () => {
+        hoverSatus = false;
+    })
+})
