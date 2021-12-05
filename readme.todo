@@ -5,8 +5,11 @@
 ✔ add custom cursor and animations for him @done(21-12-01 04:44)
 ✔ add shadows @done(21-12-01 04:46)
 ☐ try add smoth animation
-☐ fix on side od slides
-☐ add some and links content
+✔ fix slides to the second side @done (5.12.2021, 23:14:15)
+✔ add some and links content @done (5.12.2021, 23:14:21)
+✔ separate css to others files @done (5.12.2021, 23:15:58)
+✔ fix zooming in mobile view @done (5.12.2021, 23:45:35)
+☐ try to fix RWD
 ☐ add cookies
 ☐ fix looklike of form
 ☐ add working form
