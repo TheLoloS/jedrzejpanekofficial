@@ -11,6 +11,10 @@ let allContentArr = [document.getElementById("first_contant"), document.getEleme
 let lastAtMainContent = 0;
 let cursor = document.querySelector("#cursor");
 
+document.body.addEventListener("touchmove", (e)=>{
+    console.log(e)
+}, false);
+
 //better consol.log func
 function c(a) {
     console.log("%c" + a, "color: red; font-size: 4vh")
@@ -66,15 +70,30 @@ function hideMenu() {
 };
 
 //func that change main content 
-function toMainContent(e, i) {
-    c(i)
+function toMainContentR(e, i) {
     allContentArr[lastAtMainContent].classList.add("toMainOutContent");
     document.querySelector(".toMainOutContent").addEventListener("animationend", () => {
-        document.querySelector(".toMainOutContent").classList.contains("toMainOutContent") ? document.querySelector(".toMainOutContent").classList.remove("toMainOutContent") : null;
+        (document.querySelector(".toMainOutContent")) ? document.querySelector(".toMainOutContent").classList.remove("toMainOutContent") : null;
+
+    })
+    //scan all content boxes and toggle classes
+    allContentArr.forEach((a, b) => {
+        (i == b) ? a.classList.add("toMainContent"): a.classList.remove("toMainContent");
+        (a.classList.add("toMainContentL")) || a.classList.remove("toMainContentL");
+        (i == b) ? lastAtMainContent = i: null;
+        (i == b) ? changedots(b): null;
+
+    })
+}
+function toMainContentL(e, i) {
+    allContentArr[lastAtMainContent].classList.add("toMainOutContentL");
+    document.querySelector(".toMainOutContentL").addEventListener("animationend", () => {
+        (document.querySelector(".toMainOutContentL")) ? document.querySelector(".toMainOutContentL").classList.remove("toMainOutContentL") : null;
 
     })
     allContentArr.forEach((a, b) => {
-        (i == b) ? a.classList.add("toMainContent"): a.classList.remove("toMainContent");
+        (i == b) ? a.classList.add("toMainContentL"): a.classList.remove("toMainContentL");
+        (a.classList.add("toMainContent")) || a.classList.remove("toMainContent");
         (i == b) ? lastAtMainContent = i: null;
         (i == b) ? changedots(b): null;
 
@@ -84,7 +103,7 @@ function toMainContent(e, i) {
 //add interactive actions to menu
 btns.forEach((e, i) => {
     e.addEventListener("click", () => {
-        toMainContent(e, i)
+        toMainContentR(e, i)
         hideMenu();
     })
 })
@@ -104,7 +123,7 @@ function changedots(num) {
     selectDot.classList.add("selectedDot");
 }
 
-//add event on scroll 
+//add event on scroll pc
 document.body.addEventListener('wheel', (e) => {
     c(e.wheelDelta)
     let selectedDot = document.querySelector(".selectedDot");
@@ -114,18 +133,22 @@ document.body.addEventListener('wheel', (e) => {
         ((Number(a) - 1) % 4) == -1 ? x = 3 : x = (Number(a) - 1) % 4;
 
         changedots(x);
-        toMainContent(selectedDot, x)
+        toMainContentL(selectedDot, x)
 
     } else {
         let x;
         ((Number(a) + 1) % 4) == 0 ? x = 0 : x = (Number(a) + 1) % 4;
         changedots(x);
-        toMainContent(selectedDot, x)
+        toMainContentR(selectedDot, x)
 
     }
     // c(a)
 
 });
+
+//TODO:add event on scroll mobile
+
+
 
 //When menu is toggled its add click event to transparent element that's toggle off menu.
 
