@@ -224,11 +224,11 @@ div.clickEffect {
 }
 
 .first_contant > p {
-  margin-top: 5% !important;
+  margin-top: 5vh !important;
   color: white;
-  margin: 8%;
-  font-size: 22px;
-  line-height: 30px;
+  margin: 10vh;
+  font-size: 2vh;
+  line-height: 3vh;
   font-family: "Jost", sans-serif;
 }
 
@@ -360,7 +360,7 @@ form {
 
 .label_1 {
   color: white;
-  font-size: 32px;
+  font-size: 2.5vh;
   cursor: none;
 }
 
@@ -382,7 +382,7 @@ form {
 
 #text_3 {
   width: 40vw;
-  height: 14vw;
+  height: 22vh;
   resize: none;
   padding: 2vh;
 }
