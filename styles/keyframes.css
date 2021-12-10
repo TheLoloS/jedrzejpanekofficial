@@ -93,3 +93,19 @@
     transform: rotate(-360deg);
   }
 }
+@keyframes clickEffect {
+  0% {
+    opacity: 1;
+    width: 1vh;
+    height: 1vh;
+    margin: -1vh;
+    border-width: 1vh;
+  }
+  100% {
+    opacity: 0.2;
+    width: 10vh;
+    height: 10vh;
+    margin: -5vh;
+    border-width: 0, 1vh;
+  }
+}

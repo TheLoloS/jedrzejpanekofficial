@@ -28,8 +28,8 @@ let transp = document.getElementById("transp");
 let menu = document.getElementById("menu");
 let allContentArr = [
   document.getElementById("first_contant"),
-  document.getElementById("mojatworczosc"),
-  document.getElementById("spolecznosci"),
+  document.getElementById("examples"),
+  document.getElementById("social"),
   document.getElementById("contact"),
 ];
 let lastAtMainContent = 0;
@@ -44,6 +44,11 @@ let fotter = document.querySelector(".fotter > p");
 let hoverElements = [
   document.querySelector("#button_menu"),
   ...document.querySelectorAll("#menu > ul > li"),
+  document.querySelector("#text_1"),
+  document.querySelector("#text_2"),
+  document.querySelector("#text_3"),
+  document.querySelector("#form_btn"),
+  document.querySelector("#examples > p > a"),
 ];
 const mailBtn = document.querySelector("#form_btn");
 //better consol.log func
@@ -195,7 +200,7 @@ transp.addEventListener("click", () => {
   menu.classList == "transp_toggled" || hideMenu();
 });
 
-// iframe cursot bugfix
+// iframe cursor bugfix
 [...document.querySelectorAll("iframe")].forEach((e, i) => {
   e.addEventListener("mouseenter", () => {
     cursor.remove();
@@ -207,7 +212,6 @@ transp.addEventListener("click", () => {
 });
 
 //add custom cursor && check mobile
-
 !mobileStatus
   ? window.addEventListener("mousemove", (event) => {
       !hoverSatus
@@ -225,6 +229,23 @@ transp.addEventListener("click", () => {
           );
     })
   : (cursor.style.display = "none");
+//add click event
+window.addEventListener("click", clickEffect);
+
+function clickEffect(e) {
+  console.log("aa");
+  let d = document.createElement("div");
+  d.className = "clickEffect";
+  d.style.top = e.clientY + "px";
+  d.style.left = e.clientX + "px";
+  document.querySelector(".background").appendChild(d);
+  d.addEventListener(
+    "animationend",
+    function () {
+      d.parentElement.removeChild(d);
+    }.bind(this)
+  );
+}
 
 //add fotter hideing animation for mobile
 
@@ -241,7 +262,7 @@ mobileStatus
         }, 1000);
       }, 3000);
     })
-  : null;
+  : (fotter.textContent = texts[0]);
 
 //add slide effeckt on mobile
 document.body.addEventListener("touchstart", handleTouchStart, false);

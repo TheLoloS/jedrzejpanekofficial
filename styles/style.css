@@ -1,3 +1,7 @@
+html {
+  overflow: hidden;
+}
+
 #cursor {
   background-color: white;
   width: 2.5vh;
@@ -60,6 +64,25 @@ body {
   left: 20px;
   cursor: none;
   z-index: 9999;
+}
+div.clickEffect {
+  position: fixed;
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: #ffffff;
+  border-radius: 50%;
+  animation: clickEffect 0.4s ease-out;
+  z-index: 9999999999;
+}
+
+.disable-selection {
+  -webkit-touch-callout: none; /* iOS Safari                         */
+  -webkit-user-select: none; /* Safari                             */
+  -khtml-user-select: none; /* Konqueror HTML                     */
+  -moz-user-select: none; /* Firefox in the past (old versions) */
+  -ms-user-select: none; /* Internet Explorer (>=10) / Edge    */
+  user-select: none; /* Currently supported:               */
+  /* Chrome, Opera and Firefox          */
 }
 
 .button_menu:hover {
@@ -132,9 +155,9 @@ body {
   background-color: white !important;
 }
 
-.spolecznosci,
+.social,
 .contact,
-.mojatworczosc,
+.examples,
 .first_contant {
   width: 75%;
   max-width: 120vh;
@@ -149,10 +172,10 @@ body {
   box-shadow: 1vh 1vh 0px 0px rgb(0 0 0 / 30%);
 }
 
-.mojatworczosc > h1,
+.examples > h1,
 .first_contant > h1,
 .contact > h1,
-.spolecznosci > h1 {
+.social > h1 {
   width: 100%;
   text-align: center;
   color: white;
@@ -160,22 +183,22 @@ body {
   transition: 0.3s ease;
 }
 
-.spolecznosci > h1 {
+.social > h1 {
   grid-column: 1/6;
   grid-row: 1/2;
 }
-#spolecznosci {
+#social {
   display: grid;
   grid-template-rows: 1fr 1fr 2fr 2fr 1fr;
   grid-template-columns: repeat(5, 1fr);
 }
 
-.spolecznosci > hr {
+.social > hr {
   grid-column: 1/6;
   grid-row: 2/3;
 }
 
-.spolecznosci > a > img {
+.social > a > img {
   width: 18vh;
   height: 18vh;
   max-width: 10vw;
@@ -187,16 +210,16 @@ body {
   text-align: center;
 }
 
-.spolecznosci > a > img:hover {
+.social > a > img:hover {
   transform: scale(1.1);
   transition: 0.2s;
 }
 
 .contact > h1:hover + hr,
-.mojatworczosc > h1:hover + hr,
+.examples > h1:hover + hr,
 .first_contant > h1:hover + hr,
-.spolecznosci > h1:hover + hr {
-  transform: scaleX(0.5);
+.social > h1:hover + hr {
+  transform: scaleX(1.5);
   transition: 0.3s ease-in-out;
 }
 
@@ -275,33 +298,37 @@ body {
 }
 
 .twr_movie {
-  width: 32vh;
-  height: 18vh;
+  width: 24vh;
+  height: 15vh;
   background-color: black;
   display: inline-block;
   margin-left: 1vh;
   margin-right: 1vh;
   margin-top: 4%;
   transition: 0.3s;
+  cursor: none;
 }
 
 hr {
   transition: 0.3s ease-in-out;
-  width: 90%;
+  width: 50%;
 }
 iframe {
-  pointer-events: visibleFill;
+  cursor: none;
+}
+iframe:hover {
+  cursor: none;
 }
 
-/* .twr_movie:hover {
-  transform: scale(1.2);
-  transition: 0.3s;
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1);
-  -moz-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1);
-  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1);
-} */
+form {
+  padding: 5vh;
+}
 
-.mojatworczosc > p {
+.social > a {
+  cursor: none;
+}
+
+.examples > p {
   width: 100%;
   color: white;
   text-align: center;
@@ -310,23 +337,31 @@ iframe {
   font-family: "Jost", sans-serif;
 }
 
+#examples > p > a {
+  cursor: none;
+}
+
 #form_btn {
   border: 0;
   background-color: transparent;
   width: 12vw;
   height: 4vw;
   color: white;
+  font-size: 2vh;
+  cursor: none;
 }
 
 #form_btn:hover {
   animation: rotateL 0.3s;
   transform: scale(1.1);
   transition: 0.2s;
+  cursor: none;
 }
 
 .label_1 {
   color: white;
   font-size: 32px;
+  cursor: none;
 }
 
 #text_1,
@@ -342,17 +377,20 @@ iframe {
   outline: 0;
   border-radius: 0;
   transition: 0.3s;
+  cursor: none;
 }
 
 #text_3 {
   width: 40vw;
   height: 14vw;
+  resize: none;
+  padding: 2vh;
 }
 
 #text_1:hover,
 #text_2:hover,
 #text_3:hover {
-  cursor: pointer;
+  cursor: none;
 }
 
 #text_1:focus,
