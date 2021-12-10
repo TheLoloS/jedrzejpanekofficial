@@ -35,7 +35,7 @@ let allContentArr = [
 let lastAtMainContent = 0;
 let cursor = document.querySelector("#cursor");
 let texts = [
-  "Autor: Piotr TheLoloS Sałaga 2020. Wykonał dla Jędrzej Panek. Wszystkie prawa zastrzeżone ©",
+  "Autor: Piotr TheLoloS Sałaga 2020. Wszystkie prawa zastrzeżone ©",
 ];
 const el = cursor.cloneNode(true);
 let hoverSatus = false;

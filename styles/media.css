@@ -45,7 +45,7 @@
   .fotter {
     text-align: right;
     color: white;
-    font-size: 2vh;
+    font-size: 1.8vh;
     background: #00000005;
     width: 80vw;
     padding: 0;
@@ -93,6 +93,7 @@
   }
   .examples > p {
     font-size: 2vh;
+    line-height: 2vh;
   }
   .twr_movie {
     display: inline-block;
@@ -111,6 +112,7 @@
   }
   #social {
     top: 0;
+    padding-top: 2vh;
     width: 100vw;
     height: 100vh;
     display: grid;
