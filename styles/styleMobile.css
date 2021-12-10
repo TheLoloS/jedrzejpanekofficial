@@ -433,3 +433,20 @@ form {
 /* iframe {
   pointer-events: none;
 } */
+@media screen and (orientation: landscape) {
+  .twr_movie {
+    width: 34vh;
+    height: 24vh;
+  }
+  .social > a > img {
+    width: 14vh;
+    height: 14vh;
+    padding: 2vh;
+  }
+  #form_btn {
+    height: auto;
+  }
+  #form {
+    padding: 0;
+  }
+}

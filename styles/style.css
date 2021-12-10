@@ -224,10 +224,10 @@ div.clickEffect {
 }
 
 .first_contant > p {
-  margin-top: 5vh !important;
+  margin-top: 4vh !important;
   color: white;
   margin: 10vh;
-  font-size: 2vh;
+  font-size: 1.7vh;
   line-height: 3vh;
   font-family: "Jost", sans-serif;
 }
@@ -406,3 +406,10 @@ form {
 /* iframe {
   pointer-events: none;
 } */
+@media screen and (orientation: portrait) {
+  .first_contant > p {
+    margin-top: 4vh !important;
+    font-size: 1vh;
+    line-height: 1.5vh;
+  }
+}
