@@ -1,4 +1,5 @@
-@media screen and (orientation: portrait) {
+/*FIXME: keyboard break layat in site*/
+@media screen and (max-aspect-ratio: 1/1), (orientation: portrait) {
   .toMainContentR {
     animation: toMainL 0.5s ease-in-out forwards !important;
   }
