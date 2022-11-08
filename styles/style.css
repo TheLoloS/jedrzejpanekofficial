@@ -170,6 +170,7 @@ div.clickEffect {
   justify-items: center;
   text-align: center;
   box-shadow: 1vh 1vh 0px 0px rgb(0 0 0 / 30%);
+  font-family: sans-serif;
 }
 
 .examples > h1,
@@ -181,6 +182,7 @@ div.clickEffect {
   color: white;
   font-size: 4vh;
   transition: 0.3s ease;
+  font-family: sans-serif;
 }
 
 .social > h1 {
@@ -241,6 +243,7 @@ div.clickEffect {
   font-size: 16px;
   background: transparent;
   width: 100%;
+  font-family: sans-serif;
 }
 
 #transp {
@@ -322,6 +325,7 @@ iframe:hover {
 
 form {
   padding: 5vh;
+  font-family: sans-serif;
 }
 
 .social > a {
@@ -378,6 +382,7 @@ form {
   border-radius: 0;
   transition: 0.3s;
   cursor: none;
+  font-family: sans-serif;
 }
 
 #text_3 {
